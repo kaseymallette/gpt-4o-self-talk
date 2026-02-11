@@ -32,6 +32,9 @@ Create a `.env` file in the project root:
 ```env
 OPENAI_API_KEY=sk-your-api-key-here
 ```
+Important:
+- The .env file contains secrets and must not be committed to GitHub.
+- Add .env to .gitignore.
 
 ### 3. Set Up a Python Virtual Environment
 
