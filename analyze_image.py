@@ -9,7 +9,7 @@ client = OpenAI()
 
 # Create a response with the gpt-4o model to analyze the image
 response = client.responses.create(
-    model="gpt-5",
+    model="gpt-4o",
     input=[
         {
             "role": "user",
