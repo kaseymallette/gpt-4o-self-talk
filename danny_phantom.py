@@ -87,7 +87,6 @@ while True:
         break
 
     messages.append({"role": "user", "content": user_input})
-    print(f"🧠 Token count: {count_tokens(messages)}")
 
     response = client.chat.completions.create(
         model="gpt-4o",
