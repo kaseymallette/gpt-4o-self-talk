@@ -1,15 +1,17 @@
 from dotenv import load_dotenv
-import os
 from openai import OpenAI
 
-client = OpenAI()
+# Load env vars from .env file, so that OpenAI() can find OPENAI_API_KEY
+load_dotenv() 
 
-load_dotenv()  # assumes .env is in project root
-api_key = os.getenv("OPENAI_API_KEY")
+# Create an OpenAI client
+client = OpenAI() 
 
+# Create a response with the gpt-4o model, and print the output text
 response = client.responses.create(
     model="gpt-4o",
     input="Write a one-sentence bedtime story about a unicorn."
 )
 
+# Print the output text
 print(response.output_text)
