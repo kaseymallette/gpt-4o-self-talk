@@ -54,15 +54,39 @@ pip install openai python-dotenv
 This project requires Python 3.10+ (Recommended: Python 3.11).
 
 ### 5. Verify Environment Variables
+
 Load .env explicitly with python-dotenv:
 ```bash
 python -c "from dotenv import load_dotenv; import os; load_dotenv(); print(os.getenv('OPENAI_API_KEY'))"
 ```
 
-Then, export key. 
+### 6. Set Up OpenAI API Billing
+
+The OpenAI API requires an active billing method. ChatGPT subscriptions (e.g. Plus) do **not** apply to API usage.
+
+1. Go to the OpenAI billing page:  
+   https://platform.openai.com/account/billing
+
+2. Add a payment method (credit/debit card).
+
+3. (Recommended) Set usage limits:  
+   https://platform.openai.com/account/limits
+
+   - Set a small monthly limit (e.g. $5–$10)
+   - Optionally enable a soft limit alert
+
+### 7. Run the Example Script
+
+After billing is enabled, you can run the example script to verify everything works end-to-end.
+
+Make sure:
+- Your virtual environment is activated
+- Your `.env` file contains a valid `OPENAI_API_KEY`
+- Dependencies are installed
+
+Run:
 ```bash
-export OPENAI_API_KEY="sk-your-real-key-here"
-python -c "import os; print(os.getenv('OPENAI_API_KEY'))"
+python example.py
 ```
 
 ## License
