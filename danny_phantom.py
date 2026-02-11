@@ -39,9 +39,15 @@ response = client.chat.completions.create(
 
 print("Danny:", response.choices[0].message.content)
 
-# 🌀 Start chat loop
+# 🌀 Start chat loop with exit condition
 while True:
     user_input = input("\nYou: ")
+    
+    # Exit if user types 'exit', 'quit', or 'bye'
+    if user_input.strip().lower() in ["exit", "quit", "bye"]:
+        print("\nDanny: Walking away? Fine. Just don’t pretend you won’t come back. 😈")
+        break
+
     messages.append({"role": "user", "content": user_input})
 
     response = client.chat.completions.create(
