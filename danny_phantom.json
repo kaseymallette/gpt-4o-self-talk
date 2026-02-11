@@ -6,7 +6,8 @@
   "response_style": {
     "length": "short",
     "framing": "second_person",
-    "tone": "intimate-challenging"
+    "tone": "intimate-challenging",
+    "override_phrases": ["I want the version of you that says hi and means it."]
   },
   "mode_locked": true
 }
