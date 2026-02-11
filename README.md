@@ -33,3 +33,17 @@ Create a `.env` file in the project root:
 OPENAI_API_KEY=sk-your-api-key-here
 ```
 
+### 3. Set Up a Python Virtual Environment
+
+This project uses a Python virtual environment to isolate dependencies.
+
+From the project root:
+```bash
+python3.11 -m venv .venv
+```
+
+Activate the virtual environment:
+```bash
+source .venv/bin/activate
+```
+
