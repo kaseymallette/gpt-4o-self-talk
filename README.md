@@ -103,7 +103,7 @@ python analyze_image.py
 
 Sample output:
 ```bash
-La Mousmé (1888) by Vincent van Gogh.
+This painting is "La Mousmé" by Vincent van Gogh, created in 1888. It depicts a young girl in a colorful outfit sitting on a chair. Van Gogh was inspired by Japanese art, which can be seen in the style and composition.
 ```
 
 ## License
