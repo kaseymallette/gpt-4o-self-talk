@@ -51,12 +51,7 @@ With the virtual environment activated:
 python -m pip install --upgrade pip
 pip install openai python-dotenv
 ```
-
-This project requires Python 3.10+
-
-Recommended: Python 3.11
-
-Older Python versions (e.g., 3.8) are not supported by current OpenAI dependencies.
+This project requires Python 3.10+ (Recommended: Python 3.11).
 
 ### 5. Verify Environment Variables
 
