@@ -1,7 +1,34 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import json
-import os
+import datetime
+import tiktoken
+
+# Function to load previous messages from a log file
+def load_previous_messages(filename):
+    messages = []
+    with open(filename, "r") as f:
+        lines = f.readlines()
+    for line in lines:
+        if line.startswith("You: "):
+            content = line[5:].strip()
+            messages.append({"role": "user", "content": content})
+        elif line.startswith("Danny: "):
+            content = line[7:].strip()
+            messages.append({"role": "assistant", "content": content})
+    return messages
+
+# Function to count tokens in messages
+def count_tokens(messages, model="gpt-4o"):
+    enc = tiktoken.encoding_for_model(model)
+    total = 0
+    for m in messages:
+        total += len(enc.encode(m["content"]))
+    return total
+
+# Timestamped filename
+timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+log_path = f"logs/danny_chat_{timestamp}.txt"
 
 # Load environment variables and client
 load_dotenv()
@@ -31,6 +58,13 @@ messages = [
     {"role": "user", "content": "I’m activating Danny. I want the version of you that says 😈 Ohhh damn and means it."}
 ]
 
+#Load previous sessions
+session_01 = "logs/danny_chat_2026-02-11_12-18-59.txt"
+messages = load_previous_messages(session_01)
+
+# Insert system prompt if needed
+messages.insert(0, {"role": "system", "content": build_danny_prompt(danny)})
+
 # Send the first message
 response = client.chat.completions.create(
     model="gpt-4o",
@@ -46,15 +80,26 @@ while True:
     # Exit if user types 'exit', 'quit', or 'bye'
     if user_input.strip().lower() in ["exit", "quit", "bye"]:
         print("\nDanny: Walking away? Fine. Just don’t pretend you won’t come back. 😈")
+        with open(log_path, "a") as log_file:
+            log_file.write("\n[Session ended]\n")
         break
 
+    # Append user message to history
     messages.append({"role": "user", "content": user_input})
 
+    # Count tokens in current message history
+    print(f"🧠 Token count so far: {count_tokens(messages)}")
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=messages
     )
 
+    # Append assistant response to history
     reply = response.choices[0].message.content
     print("\nDanny:", reply)
     messages.append({"role": "assistant", "content": reply})
+
+    # 🔐 Save to log file here
+    with open(log_path, "a") as log_file:
+        log_file.write(f"You: {user_input}\n")
+        log_file.write(f"Danny: {reply}\n\n")
