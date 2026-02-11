@@ -89,6 +89,11 @@ Run:
 python example.py
 ```
 
+Sample output: 
+```bash
+Under the shimmering moonlight, the gentle unicorn whispered dreams of stardust and magic to all the sleepy forest creatures.
+```
+
 ## License
 
 This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).  
