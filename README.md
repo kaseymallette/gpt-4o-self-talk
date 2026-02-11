@@ -49,7 +49,7 @@ source .venv/bin/activate
 With the virtual environment activated:
 ```bash
 python -m pip install --upgrade pip
-pip install openai python-dotenv
+pip install -r requirements.txt
 ```
 This project requires Python 3.10+ (Recommended: Python 3.11).
 
