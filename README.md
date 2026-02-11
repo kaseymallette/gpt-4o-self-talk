@@ -50,3 +50,17 @@ Activate the virtual environment:
 source .venv/bin/activate
 ```
 
+### 4. Upgrade pip and Install Dependencies
+
+With the virtual environment activated:
+```bash
+python -m pip install --upgrade pip
+pip install openai python-dotenv
+```
+
+## 5. Verify Environment Variables
+
+To confirm the API key is available to Python:
+```bash
+python -c "import os; print(os.getenv('OPENAI_API_KEY'))"
+```
