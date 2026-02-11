@@ -52,7 +52,11 @@ python -m pip install --upgrade pip
 pip install openai python-dotenv
 ```
 
-## 5. Verify Environment Variables
+This project requires Python 3.10+
+Recommended: Python 3.11
+Older Python versions (e.g., 3.8) are not supported by current OpenAI dependencies.
+
+### 5. Verify Environment Variables
 
 To confirm the API key is available to Python:
 ```bash
