@@ -16,7 +16,7 @@ response = client.responses.create(
             "content": [
                 {
                     "type": "input_text",
-                    "text": "Describe this image in 1-2 sentences.",
+                    "text": "What painting is this?",
                 },
                 {
                     "type": "input_image",

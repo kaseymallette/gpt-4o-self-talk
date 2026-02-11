@@ -94,6 +94,18 @@ Sample output:
 Under the shimmering moonlight, the gentle unicorn whispered dreams of stardust and magic to all the sleepy forest creatures.
 ```
 
+### 8. Run the Analyze Image Script
+
+This script 
+Run:
+```bash
+python analyze_image.py
+```
+
+Sample output:
+```bash
+```
+
 ## License
 
 This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).  
