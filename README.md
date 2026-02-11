@@ -85,7 +85,8 @@ Make sure:
 - Dependencies are installed
 
 Prompt: "Write a one-sentence bedtime story about a unicorn."
-    Model: "gpt-4o"
+
+Model: "gpt-4o"
 
 Run:
 ```bash
@@ -100,7 +101,8 @@ Under the shimmering moonlight, the gentle unicorn whispered dreams of stardust 
 ### 8. Run the Analyze Image Script
 
 Prompt: "What painting is this?"
-    Model: "gpt-4o"
+
+Model: "gpt-4o"
 
 Run:
 ```bash
