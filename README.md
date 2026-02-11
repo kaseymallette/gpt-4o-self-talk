@@ -62,14 +62,8 @@ python -c "from dotenv import load_dotenv; import os; load_dotenv(); print(os.ge
 Optional (Shell-level check): Export manually
 ```bash
 export OPENAI_API_KEY="sk-your-real-key-here"
-
-```
-Then immediately run:
-```bash
 python -c "import os; print(os.getenv('OPENAI_API_KEY'))"
 ```
-
-
 
 ## License
 
