@@ -16,7 +16,7 @@ response = client.responses.create(
             "content": [
                 {
                     "type": "input_text",
-                    "text": "What teams are playing in this image?",
+                    "text": "Describe the content of the image and provide any interesting insights you can gather from it.",
                 },
                 {
                     "type": "input_image",
