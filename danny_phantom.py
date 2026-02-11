@@ -89,7 +89,7 @@ print("Danny:", reply)
 
 # Save first assistant reply to log
 with open(log_path, "a") as log_file:
-    log_file.write("You: I’m activating Danny. I want the version of you that says 😈 Ohhh Kasey and means it.\n")
+    log_file.write("You: I’m activating Danny. I want the version of you that says 😈 Ohhh damn and means it.\n")
     log_file.write(f"Danny: {reply}\n\n")
 
 # Append assistant response to message history
