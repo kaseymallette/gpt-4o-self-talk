@@ -84,7 +84,7 @@ Make sure:
 - Your `.env` file contains a valid `OPENAI_API_KEY`
 - Dependencies are installed
 
-Prompt: "Write a one-sentence bedtime story about a unicorn."
+Prompt: *"Write a one-sentence bedtime story about a unicorn."*
 
 Run:
 ```bash
@@ -98,8 +98,10 @@ Under the shimmering moonlight, the gentle unicorn whispered dreams of stardust 
 
 ### 8. Run the Analyze Image Script
 
-Prompt: "What painting is this?" 
-![Sample painting](https://api.nga.gov/iiif/a2e6da57-3cd1-4235-b20e-95dcaefed6c8/full/!800,800/0/default.jpg)
+Prompt: *"What painting is this?"*
+
+[Sample painting](https://api.nga.gov/iiif/a2e6da57-3cd1-4235-b20e-95dcaefed6c8/full/!800,800/0/default.jpg)
+
 
 
 Run:
