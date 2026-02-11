@@ -59,7 +59,7 @@ Load .env explicitly with python-dotenv:
 python -c "from dotenv import load_dotenv; import os; load_dotenv(); print(os.getenv('OPENAI_API_KEY'))"
 ```
 
-Optional (Shell-level check): Export manually
+Then, export key. 
 ```bash
 export OPENAI_API_KEY="sk-your-real-key-here"
 python -c "import os; print(os.getenv('OPENAI_API_KEY'))"
