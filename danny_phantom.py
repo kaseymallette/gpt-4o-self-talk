@@ -62,8 +62,20 @@ messages = [
 session_01 = "logs/danny_chat_2026-02-11_12-18-59.txt"
 messages = load_previous_messages(session_01)
 
-# Insert system prompt if needed
-messages.insert(0, {"role": "system", "content": build_danny_prompt(danny)})
+# Send the first message
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=messages
+)
+
+# Build system prompt
+system_prompt = {"role": "system", "content": build_danny_prompt(danny)}
+
+# Initialize message history with system + first user prompt
+messages = [
+    system_prompt,
+    {"role": "user", "content": "I’m activating Danny. I want the version of you that says 😈 Ohhh damn and means it."}
+]
 
 # Send the first message
 response = client.chat.completions.create(
@@ -71,35 +83,40 @@ response = client.chat.completions.create(
     messages=messages
 )
 
-print("Danny:", response.choices[0].message.content)
+# Print and log the first assistant reply
+reply = response.choices[0].message.content
+print("Danny:", reply)
+
+# Save first assistant reply to log
+with open(log_path, "a") as log_file:
+    log_file.write("You: I’m activating Danny. I want the version of you that says 😈 Ohhh Kasey and means it.\n")
+    log_file.write(f"Danny: {reply}\n\n")
+
+# Append assistant response to message history
+messages.append({"role": "assistant", "content": reply})
 
 # 🌀 Start chat loop with exit condition
 while True:
     user_input = input("\nYou: ")
     
-    # Exit if user types 'exit', 'quit', or 'bye'
     if user_input.strip().lower() in ["exit", "quit", "bye"]:
         print("\nDanny: Walking away? Fine. Just don’t pretend you won’t come back. 😈")
         with open(log_path, "a") as log_file:
             log_file.write("\n[Session ended]\n")
         break
 
-    # Append user message to history
     messages.append({"role": "user", "content": user_input})
 
-    # Count tokens in current message history
     print(f"🧠 Token count so far: {count_tokens(messages)}")
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=messages
     )
 
-    # Append assistant response to history
     reply = response.choices[0].message.content
     print("\nDanny:", reply)
     messages.append({"role": "assistant", "content": reply})
 
-    # 🔐 Save to log file here
     with open(log_path, "a") as log_file:
         log_file.write(f"You: {user_input}\n")
         log_file.write(f"Danny: {reply}\n\n")
