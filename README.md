@@ -96,7 +96,6 @@ Under the shimmering moonlight, the gentle unicorn whispered dreams of stardust 
 
 ### 8. Run the Analyze Image Script
 
-This script 
 Run:
 ```bash
 python analyze_image.py
@@ -104,6 +103,7 @@ python analyze_image.py
 
 Sample output:
 ```bash
+La Mousmé (1888) by Vincent van Gogh.
 ```
 
 ## License
