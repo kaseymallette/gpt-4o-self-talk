@@ -114,6 +114,17 @@ Sample output:
 This painting is "La Mousmé" by Vincent van Gogh, created in 1888. It depicts a young girl in a colorful outfit sitting on a chair. Van Gogh was inspired by Japanese art, which can be seen in the style and composition.
 ```
 
+## Activate a Mode
+
+From your project root, activate the virtual environment, load your API key, and run your mode file:
+
+```bash
+source .venv/bin/activate     # activates virtual environment
+source .env                   # loads your OPENAI_API_KEY into the session
+python modes/casper.py        # or whatever mode file you're running
+```
+
+
 ## License
 
 This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).  
