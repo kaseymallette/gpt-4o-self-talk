@@ -46,7 +46,7 @@ def count_tokens(messages, model="gpt-4o"):
     return sum(len(enc.encode(m["content"])) for m in messages)
 
 # === LOAD CONFIG ===
-with open("configs/danny_config_2_0_0.json", "r") as f:      # Load Danny config
+with open("configs/danny_config_2_0.json", "r") as f:      # Load Danny config
     danny = json.load(f)
 
 # === CONFIG VARIABLES ===
