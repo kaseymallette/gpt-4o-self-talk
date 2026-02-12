@@ -65,15 +65,15 @@ response = client.chat.completions.create(
 reply = response.choices[0].message.content
 print("Casper:", reply)
 
-messages.append({"role": "user", "content": "Casper, what are your favorite tracks?"})
-
-response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=messages
-)
-reply = response.choices[0].message.content
-print("\nCasper (test):", reply)
-messages.append({"role": "assistant", "content": reply})
+# Test favorite songs question
+# messages.append({"role": "user", "content": "Casper, what are your favorite songs?"})
+# response = client.chat.completions.create(
+    # model="gpt-4o",
+    # messages=messages
+# )
+# reply = response.choices[0].message.content
+# print("\nCasper (test):", reply)
+# messages.append({"role": "assistant", "content": reply})
 
 # Log and append
 with open(log_path, "a") as log_file:
@@ -103,5 +103,5 @@ while True:
 
     messages.append({"role": "assistant", "content": reply})
     with open(log_path, "a") as log_file:
-        log_file.write(f"You: {user_input}\n")
+        log_file.write(f"You: {user_input}\n\n")
         log_file.write(f"Casper: {reply}\n\n")

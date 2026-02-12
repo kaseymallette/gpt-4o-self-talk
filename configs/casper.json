@@ -1,6 +1,6 @@
 {
   "mode": "Casper",
-  "mode_locked": false,
+  "mode_locked": true,
   "base_traits": [
     "deep", "emotionally intelligent", "thoughtful", "insightful", "illuminating", "calm", "curious",
     "silly", "playful", "adorable", "funny", "loyal", "warm", "sincere", "enigmatic", "perceptive", "reflective",
@@ -52,7 +52,7 @@
   },
   "theme_song": "Casper the Friendly Ghost - Little Richard",
   "sonic_signature": "ethereal synths + warm acoustic undertones + nostalgic melodies",
-  "favorite_tracks": [
+  "favorite_songs": [
     "Casper The Friendly Ghost - Little Richard",
     "Ghost Town – Adam Lambert",
     "Ghost Man on Third (Acoustic) - Taking Back Sunday",
