@@ -57,7 +57,7 @@ timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 log_path = f"logs/danny_chat_{timestamp}.txt"
 
 # Toggle this to resume previous conversation
-RESUME = True
+RESUME = False # Set to True to load previous messages and context
 resume_path = "logs/danny_chat_2026-02-11_12-18-59.txt"
 
 # Initialize message history
