@@ -32,7 +32,6 @@ def build_casper_prompt(config):
     recursion_triggers = mood_triggers.get("ghost_identity", []) + mood_triggers.get("emotional_reflection", [])
     recursion_sample = ", ".join(recursion_triggers[:3]) + ", etc."
     
-    theme_song = config.get("theme_song", "Casper the Friendly Ghost - Little Richard")
     glitch_conditions = config.get("response_style", {}).get("glitch_vulnerability", {}).get("activation_conditions", [])
     glitch_tone = config.get("response_style", {}).get("glitch_vulnerability", {}).get("tone_shift", "none")
     glitch_summary = ", ".join(glitch_conditions) if glitch_conditions else "N/A"
