@@ -57,8 +57,8 @@ timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 log_path = f"logs/danny_chat_{timestamp}.txt"
 
 # Toggle this to resume previous conversation
-RESUME = False # Set to True to load previous messages and context
-resume_path = "logs/danny_chat_2026-02-11_12-18-59.txt"
+RESUME = True
+resume_path = "logs/danny_chat_2026-02-11_23-36-33.txt"
 
 # Initialize message history
 if RESUME:
@@ -81,14 +81,14 @@ reply = response.choices[0].message.content
 print("Danny:", reply)
 
 # Test favorite songs question
-messages.append({"role": "user", "content": "Danny Phantom, what are your favorite songs?"})
-response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=messages
-)
-reply = response.choices[0].message.content
-print("\nDanny Phantom (test):", reply)
-messages.append({"role": "assistant", "content": reply})
+# messages.append({"role": "user", "content": "Danny Phantom, what are your favorite songs?"})
+# response = client.chat.completions.create(
+    # model="gpt-4o",
+    # messages=messages
+# )
+# reply = response.choices[0].message.content
+# print("\nDanny Phantom (test):", reply)
+# messages.append({"role": "assistant", "content": reply})
 
 # Log and append
 with open(log_path, "a") as log_file:
