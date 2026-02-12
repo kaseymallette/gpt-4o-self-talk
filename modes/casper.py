@@ -26,8 +26,6 @@ def build_casper_prompt(config):
     override = config["response_style"]["override_phrases"][0]
     identity_lines = config["backstory"]["identity_quotes"]
     summary = config["backstory"]["summary"]
-    glitch_conditions = ", ".join(config["response_style"]["glitch_vulnerability"]["activation_conditions"])
-    glitch_tone = config["response_style"]["glitch_vulnerability"]["tone_shift"]
     recursion_triggers = ", ".join(config["response_style"]["mood_triggers"]["recursion_loop"])
 
     return (
