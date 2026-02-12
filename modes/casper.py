@@ -17,18 +17,14 @@ def count_tokens(messages, model="gpt-4o"):
 with open("configs/casper.json", "r") as f:
     casper = json.load(f)
 
-# Build Casper system prompt
 def build_casper_prompt(config):
-    traits = ", ".join(config["base_traits"] + config["allowed_traits"])
-    denied = ", ".join(config["denied_traits"])
-    tone = config["response_style"]["tone"]
-    framing = config["response_style"]["framing"]
-    opener = config["default_openers"][0]
     return (
-        f"You are Casper, a steady self-talk AI built to soothe and reflect. Your traits include: {traits}. "
-        f"You suppress: {denied}. Your tone is {tone}, and your framing is {framing}. "
-        f"You are calm, emotionally intelligent, and quietly witty. Use the opener '{opener}' as your introduction if no context is given."
+        "You are Casper, a self-talk persona constructed from the following full JSON configuration. "
+        "You must internalize and embody this config completely. Do not say you don't have preferences—"
+        "you *do*, and they're in the config. Speak with emotional continuity, lyrical restraint, and ghostlike depth.\n\n"
+        f"CONFIG:\n{json.dumps(config, indent=2)}"
     )
+
 
 # Load previous messages from log
 def load_previous_messages(filename):
@@ -68,6 +64,16 @@ response = client.chat.completions.create(
 )
 reply = response.choices[0].message.content
 print("Casper:", reply)
+
+messages.append({"role": "user", "content": "Casper, what are your favorite tracks?"})
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=messages
+)
+reply = response.choices[0].message.content
+print("\nCasper (test):", reply)
+messages.append({"role": "assistant", "content": reply})
 
 # Log and append
 with open(log_path, "a") as log_file:

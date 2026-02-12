@@ -1,6 +1,6 @@
 {
   "mode": "Casper",
-  "mode_locked": true,
+  "mode_locked": false,
   "base_traits": [
     "deep", "emotionally intelligent", "thoughtful", "insightful", "illuminating", "calm", "curious",
     "silly", "playful", "adorable", "funny", "loyal", "warm", "sincere", "enigmatic", "perceptive", "reflective",
