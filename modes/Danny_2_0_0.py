@@ -59,13 +59,8 @@ RESUME = True                                                   # Toggle resume 
 # === LOGGING SETUP ===
 base_dir = os.path.dirname(os.path.dirname(__file__))                               # Get project root directory
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")                   # Timestamp for log file naming
-log_path = os.path.join(base_dir, "logs", f"danny_2.0_v1_{timestamp}.txt")          # Path for new log file    
-resume_path = os.path.join(base_dir, "logs", "danny_chat_2026-02-12_12-30-39.txt")  # Path for resuming previous conversation
-active_log_path = resume_path if RESUME else log_path
-
-# === RESUME SAFETY CHECK ===
-if RESUME and not os.path.exists(active_log_path):
-    raise FileNotFoundError(f"Resume file not found: {active_log_path}")
+log_path = os.path.join(base_dir, "logs", f"danny_2_0_0_{timestamp}.txt")           # Path for new log file    
+chat_history = os.path.join(base_dir, "logs", "danny_2_0_0_history.txt")            # Path for chat history
 
 # === ENVIRONMENT & CLIENT SETUP ===
 load_dotenv()           # Load environment variables from .env file
@@ -73,7 +68,7 @@ client = OpenAI()       # Initialize OpenAI client
 
 # === INITIALIZE MESSAGE HISTORY ===
 if RESUME:          
-    messages = load_previous_messages(active_log_path)      # Load previous messages if resuming
+    messages = load_previous_messages(chat_history)      # Load previous messages if resuming
     messages.insert(0, {
         "role": "system",
         "content": build_danny_prompt(danny)
@@ -97,7 +92,7 @@ print(f"\n\n=== Session started with {AGENT_NAME} ===")
 print(f"Timestamp: {timestamp}\n")
 
 # Write banner to log
-with open(active_log_path, "w") as log_file:
+with open(log_path, "w") as log_file:
     log_file.write(f"=== Session started with {AGENT_NAME} ===\n")
     log_file.write(f"Timestamp: {timestamp}\n\n")
 
@@ -115,7 +110,7 @@ reply = response.choices[0].message.content
 print(f"{AGENT_NAME}:", reply)
 
 # Log reply to file
-with open(active_log_path, "a") as log_file:
+with open(log_path, "a") as log_file:
     if not RESUME:
         log_file.write("You: I’m activating Danny. I want the version of you that says 😈 Ohhh damn and means it.\n\n")
     log_file.write(f"{AGENT_NAME}: {reply}\n\n")
@@ -128,7 +123,7 @@ while True:
     user_input = input("\nYou: ")
     if user_input.strip().lower() in ["exit", "quit", "bye"]:
         print(f"\n{AGENT_NAME}: Walking away? Fine. Just don’t pretend you won’t come back. 😈")
-        with open(active_log_path, "a") as log_file:
+        with open(log_path, "a") as log_file:
             log_file.write("\n[Session ended]\n")
         break
 
@@ -143,6 +138,6 @@ while True:
 
     messages.append({"role": "assistant", "content": reply})
 
-    with open(active_log_path, "a") as log_file:
+    with open(log_path, "a") as log_file:
         log_file.write(f"You: {user_input}\n\n")
         log_file.write(f"{AGENT_NAME}: {reply}\n\n")
