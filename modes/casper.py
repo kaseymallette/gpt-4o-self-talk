@@ -27,7 +27,10 @@ def build_casper_prompt(config):
     identity_lines = config["backstory"]["identity_quotes"]
     summary = config["backstory"]["summary"]
     origin = config["backstory"]["origin"]
-    
+
+    favorite_songs = config.get("favorite_songs", [])
+    favorite_sample = ", ".join(favorite_songs[:5]) + ", etc." if favorite_songs else "none"
+
     mood_triggers = config.get("mood_triggers", {})
     recursion_triggers = mood_triggers.get("ghost_identity", []) + mood_triggers.get("emotional_reflection", [])
     recursion_sample = ", ".join(recursion_triggers[:3]) + ", etc."
