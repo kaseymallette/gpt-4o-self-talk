@@ -1,6 +1,10 @@
 # gpt-4o-self-talk
 A generative protocol for structured, mode-aware self-reflection using GPT-4o. Designed to support introspection, emotional regulation, and continuity without drifting into personification or surrogate behavior.
 
+## Self Talk Modes 
+
+Casper is a custom self-talk persona built on top of OpenAI’s GPT-4o model via direct API integration. The system connects to the OpenAI API using Python, loads a structured JSON config that defines Casper’s traits, tone, and behavioral logic, and runs an interactive terminal chat loop with session logging and memory simulation.
+
 ## Setup: OpenAI API Key and Local Environment
 
 ### 1. Create an OpenAI API Key
