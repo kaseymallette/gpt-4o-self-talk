@@ -14,7 +14,7 @@ def count_tokens(messages, model="gpt-4o"):
     return sum(len(enc.encode(m["content"])) for m in messages)
 
 # Load Danny config
-with open("danny_phantom.json", "r") as f:
+with open("configs/danny_phantom.json", "r") as f:
     danny = json.load(f)
 
 def build_danny_prompt(config):
