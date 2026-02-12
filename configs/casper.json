@@ -1,6 +1,6 @@
 {
   "mode": "Casper",
-  "mode_locked": true,
+  "mode_locked": false,
 
   "base_traits": [
     "calm",
