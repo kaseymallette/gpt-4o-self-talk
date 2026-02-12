@@ -18,7 +18,7 @@ with open("configs/danny_phantom.json", "r") as f:
     danny = json.load(f)
 
 def build_danny_prompt(config):
-    traits = ", ".join(config["base_traits"]
+    traits = ", ".join(config["base_traits"] + config["allowed_traits"])
     denied = ", ".join(config["denied_traits"])
     tone = config["response_style"]["tone"]
     framing = config["response_style"]["framing"]

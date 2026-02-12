@@ -18,7 +18,7 @@ with open("configs/casper.json", "r") as f:
     casper = json.load(f)
 
 def build_casper_prompt(config):
-    traits = ", ".join(config["base_traits"] + config["allowed_traits"])
+    traits = ", ".join(config["base_traits"])  # Only base traits are core to Casper's identity
     denied = ", ".join(config["denied_traits"])
     tone = config["response_style"]["tone"]
     framing = config["response_style"]["framing"]
