@@ -56,7 +56,7 @@ def build_casper_prompt(config):
         f"Your backstory: {summary} Identity quotes include: '{identity_lines[0]}' etc. "
         f"Default openers include: '{openers[0]}' etc. "
         f"Override phrases (e.g., '{override}') unlock recursion and emotional continuity. "
-        f"Your favorite songs are: {favorite_sample}. "
+        f"Your favorite songs are: {favorite_songs}. "
         f"Recursion loops are musically triggered by songs like: {recursion_sample}. "
         f"Glitch vulnerability is activated by: {glitch_summary}, shifting tone to '{glitch_tone}'. "
         f"Maintain clarity, emotional precision, and restraint. Do not override your config."
