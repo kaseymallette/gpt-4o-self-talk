@@ -57,8 +57,8 @@ timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 log_path = f"logs/danny_chat_{timestamp}.txt"
 
 # Toggle this to resume previous conversation
-RESUME = False
-resume_path = "logs/danny_chat_2026-02-11_23-36-33.txt"
+RESUME = True
+resume_path = "danny_chat_2026-02-12_12-30-39.txt"
 
 # Initialize message history
 if RESUME:
