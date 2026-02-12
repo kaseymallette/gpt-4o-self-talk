@@ -59,8 +59,8 @@ RESUME = True                                                   # Toggle resume 
 # === LOGGING SETUP ===
 base_dir = os.path.dirname(os.path.dirname(__file__))                               # Get project root directory
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")                   # Timestamp for log file naming
-log_path = os.path.join(base_dir, "logs", f"danny_2_0_0_{timestamp}.txt")           # Path for new log file    
-chat_history = os.path.join(base_dir, "logs", "danny_2_0_0_history.txt")            # Path for chat history
+log_path = os.path.join(base_dir, "logs", f"danny_2_0_{timestamp}.txt")           # Path for new log file    
+chat_history = os.path.join(base_dir, "logs", "danny_2_0_history.txt")            # Path for chat history
 
 # === ENVIRONMENT & CLIENT SETUP ===
 load_dotenv()           # Load environment variables from .env file
