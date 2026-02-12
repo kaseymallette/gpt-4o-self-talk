@@ -28,10 +28,6 @@ def build_casper_prompt(config):
     summary = config["backstory"]["summary"]
     origin = config["backstory"]["origin"]
 
-    # ✅ FIX: favorite songs are inside response_style
-    favorite_songs = config.get("response_style", {}).get("favorite_songs", [])
-    favorite_sample = ", ".join(favorite_songs[:5]) + ", etc." if favorite_songs else "none"
-
     mood_triggers = config.get("response_style", {}).get("mood_triggers", {})
     recursion_triggers = (
         mood_triggers.get("ghost_identity", []) +
