@@ -28,6 +28,7 @@ def build_casper_prompt(config):
     summary = config["backstory"]["summary"]
     origin = config["backstory"]["origin"]
 
+    favorite_songs = config.get("response_style", {}).get("favorite_songs", [])
     mood_triggers = config.get("response_style", {}).get("mood_triggers", {})
     recursion_triggers = (
         mood_triggers.get("ghost_identity", []) +
@@ -102,7 +103,7 @@ print("Casper:", reply)
 messages.append({"role": "assistant", "content": reply})
 
 # Test favorite songs question
-messages.append({"role": "user", "content": "Casper, what are your favorite songs?"})
+messages.append({"role": "user", "content": "Casper, what are some of your favorite songs?"})
 response = client.chat.completions.create(
     model="gpt-4o",
     messages=messages
