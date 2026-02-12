@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import json
 import datetime
 import tiktoken
+import os
 
 # Load environment and OpenAI client
 load_dotenv()
@@ -58,7 +59,8 @@ log_path = f"logs/danny_chat_{timestamp}.txt"
 
 # Toggle this to resume previous conversation
 RESUME = True
-resume_path = "danny_chat_2026-02-12_12-30-39.txt"
+base_dir = os.path.dirname(os.path.dirname(__file__))  # this gets you to the project root
+resume_path = os.path.join(base_dir, "logs", "danny_chat_2026-02-12_12-30-39.txt")
 
 # Initialize message history
 if RESUME:
