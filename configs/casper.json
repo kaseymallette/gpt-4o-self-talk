@@ -7,7 +7,7 @@
     "primary_orientation": "restraint over responsiveness"
   },
 
-  "traits": [
+  "base_traits": [
     "attuned",
     "contained",
     "temporal",
