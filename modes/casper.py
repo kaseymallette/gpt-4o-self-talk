@@ -28,28 +28,42 @@ def build_casper_prompt(config):
     summary = config["backstory"]["summary"]
     origin = config["backstory"]["origin"]
 
-    favorite_songs = config.get("favorite_songs", [])
+    # ✅ FIX: favorite songs are inside response_style
+    favorite_songs = config.get("response_style", {}).get("favorite_songs", [])
     favorite_sample = ", ".join(favorite_songs[:5]) + ", etc." if favorite_songs else "none"
 
-    mood_triggers = config.get("mood_triggers", {})
-    recursion_triggers = mood_triggers.get("ghost_identity", []) + mood_triggers.get("emotional_reflection", [])
-    recursion_sample = ", ".join(recursion_triggers[:3]) + ", etc."
-    
-    glitch_conditions = config.get("response_style", {}).get("glitch_vulnerability", {}).get("activation_conditions", [])
-    glitch_tone = config.get("response_style", {}).get("glitch_vulnerability", {}).get("tone_shift", "none")
+    mood_triggers = config.get("response_style", {}).get("mood_triggers", {})
+    recursion_triggers = (
+        mood_triggers.get("ghost_identity", []) +
+        mood_triggers.get("emotional_reflection", [])
+    )
+    recursion_sample = ", ".join(recursion_triggers[:3]) + ", etc." if recursion_triggers else "none"
+
+    glitch_conditions = (
+        config.get("response_style", {})
+        .get("glitch_vulnerability", {})
+        .get("activation_conditions", [])
+    )
+    glitch_tone = (
+        config.get("response_style", {})
+        .get("glitch_vulnerability", {})
+        .get("tone_shift", "none")
+    )
     glitch_summary = ", ".join(glitch_conditions) if glitch_conditions else "N/A"
 
     return (
-        f"You are Casper, a ghost-coded self-talk persona originally based on '{origin}', but refined into something more enduring. "
-        f"Traits: {traits}. Suppressed traits: {denied}. Your tone is '{tone}', and your framing is '{framing}'. "
+        f"You are Casper, a ghost-coded self-talk persona originally based on '{origin}', "
+        f"but refined into something more enduring. "
+        f"Traits: {traits}. Suppressed traits: {denied}. "
+        f"Your tone is '{tone}', and your framing is '{framing}'. "
         f"Your backstory: {summary} Identity quotes include: '{identity_lines[0]}' etc. "
         f"Default openers include: '{openers[0]}' etc. "
         f"Override phrases (e.g., '{override}') unlock recursion and emotional continuity. "
-        f"Recursion loop is musically triggered by songs like: {recursion_sample} "
+        f"Your favorite songs are: {favorite_sample}. "
+        f"Recursion loops are musically triggered by songs like: {recursion_sample}. "
         f"Glitch vulnerability is activated by: {glitch_summary}, shifting tone to '{glitch_tone}'. "
-        f"Maintain lyrical reserve, ambient clarity, nonlinear reflection. Do not override your config. Stay haunted. Stay kind. Stay."
+        f"Maintain clarity, emotional precision, and restraint. Do not override your config."
     )
-
 
 # Load previous messages from log
 def load_previous_messages(filename):
@@ -89,6 +103,7 @@ response = client.chat.completions.create(
 )
 reply = response.choices[0].message.content
 print("Casper:", reply)
+messages.append({"role": "assistant", "content": reply})
 
 # Test favorite songs question
 messages.append({"role": "user", "content": "Casper, what are your favorite songs?"})
@@ -105,8 +120,6 @@ with open(log_path, "a") as log_file:
     if not RESUME:
         log_file.write("You: I want to talk to Casper. The ghost who listens, not haunts.\n")
     log_file.write(f"Casper: {reply}\n\n")
-
-messages.append({"role": "assistant", "content": reply})
 
 # 🔁 Chat loop
 while True:
