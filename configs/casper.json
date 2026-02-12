@@ -77,11 +77,10 @@
       "Let it breathe."
     ],
     "override_triggers": [
-      "Casper, is it you?",
-      "Don’t disappear.",
-      "Just stay.",
-      "No fixing.",
-      "Hold this with me."
+      "I'm here. You are not alone.",
+      "I’m not going anywhere. We have time.",
+      "I’m still here. I’m still listening.",
+      "I’m not trying to fix it. I’m just holding it."
     ],
     "glitch_fragments": [
       "looped.",
