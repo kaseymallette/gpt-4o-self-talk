@@ -90,7 +90,7 @@ with open("configs/sg_config_2_0.json", "r") as f:      # Load Danny config
 NAME = sg_config.get("name", "unknown name")
 VERSION = sg_config.get("version", "unknown version")
 AGENT_NAME = f"{NAME} {VERSION}"
-RESUME = False
+RESUME = True
 
 # === LOGGING SETUP ===
 base_dir = os.path.dirname(os.path.dirname(__file__))                             
