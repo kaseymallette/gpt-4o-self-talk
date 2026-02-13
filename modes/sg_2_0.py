@@ -104,7 +104,7 @@ client = OpenAI()       # Initialize OpenAI client
 
 # === INITIALIZE MESSAGE HISTORY ===
 if RESUME:          
-    messages = load_previous_messages(chat_history)      # Load previous messages if resuming
+    messages = load_previous_messages(chat_history, AGENT_NAME)      # Load previous messages if resuming
     messages.insert(0, {
         "role": "system",
         "content": build_sg_profile(sg_config)
