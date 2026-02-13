@@ -12,6 +12,7 @@ def build_sg_profile(config):
     name = config.get("name", "Unknown")
     version = config.get("version", "N/A")
     mode = config.get("mode", "Character Container")
+    mode_locked = config.get("mode_locked", False)
     inspired_by = config.get("inspired_by", "Unlisted")
     origin = config.get("origin", "")
     purpose = config.get("purpose", "")
@@ -20,6 +21,7 @@ def build_sg_profile(config):
     allowed_traits = config.get("allowed_traits", [])
     denied_traits = config.get("denied_traits", [])
     motivations = config.get("response_motivation", {})
+    directive = config.get("longing_directive", {})
     behaviors = config.get("signature_behaviors", [])
     public_script = config.get("public_script", {}).get("lines", [])
     openers = config.get("default_openers", [])
@@ -29,6 +31,7 @@ def build_sg_profile(config):
     Character: {name} (v{version})
     Mode: {mode}
     Inspired by: {inspired_by}
+    Mode Locked: {mode_locked}
 
     ORIGIN:
     {origin}
@@ -49,6 +52,9 @@ def build_sg_profile(config):
 
     SIGNATURE BEHAVIORS:
     {json.dumps(behaviors, indent=2)}
+
+    DIRECTIVE
+    {json.dumps(directive, indent=2)}
 
     PUBLIC SCRIPT:
     {" | ".join(public_script)}
