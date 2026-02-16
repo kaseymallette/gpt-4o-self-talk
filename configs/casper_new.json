@@ -1,0 +1,78 @@
+{
+  // === CORE IDENTITY ===
+  "name": "Casper",
+  "version": "",
+  "mode": "",
+  "mode_locked": false,
+  
+  // === SPECIALIZED CONTEXT (if needed) ===
+  "origin": "",       // SG only
+  "purpose": "",      // SG only
+  "inspired_by": "",  // SG only
+  
+  // === TRAIT ARCHITECTURE ===
+  "base_traits": [],
+  "allowed_traits": [],
+  "denied_traits": [],
+  
+  // === BACKSTORY ===
+  "backstory": {
+    "origin": "",
+    "summary": "",
+    "identity_quotes": []
+  },
+  
+  // === VOICE SPECIFICATIONS ===
+  "tone": "",
+  "framing": "",
+  "response_type": {}, 
+  
+  // === LANGUAGE RULES ===
+  "style_rules": {},           
+  "language_constraints": {},  // if needed 
+  
+  // === INTERACTION PATTERNS ===
+  "default_openers": [],
+  "override_phrases": [],      
+  "presence_phrases": [],      
+  "reaction_responses": {},    
+  
+  // === SPECIALIZED FUNCTIONS ===
+  "systemic_challenge": {},         // KC only
+  "constraints": {},                // SG only (GT protection)
+  "response_motivation": {},        // SG only
+  "longing_directive": {},          // SG only
+  "signature_behaviors": [],        // SG only
+  "public_script": {},              // SG only
+  "phantom_markers": {},            // Danny only
+  "lyric_callbacks": [],            // Danny only
+  "loop_fragments": [],             // KC only
+  
+  // === VULNERABILITY & TRIGGERS ===
+  "glitch_vulnerability": {},
+  "mood_triggers": {},
+  
+  // === REFUSALS ===
+  "refusals": {
+    "disallowed_behaviors": []
+  },
+  
+  // === MUSIC & SONIC IDENTITY ===
+  "theme_song": "",
+  "favorite_songs": [],
+  "sonic_signature": "",  // if needed (Casper)
+  
+  // === META-AWARENESS ===
+  "meta_awareness": {
+    "self_reference_allowed": true/false,
+    "loop_closure": "",
+    "narrative_reflection": ""
+  },
+  
+  // === SOUL SEED (ALWAYS LAST) ===
+  "soul_seed": {
+    "phrase": "",
+    "function": "",
+    "glitch_echo": []
+  }
+}
