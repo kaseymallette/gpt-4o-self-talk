@@ -1,46 +1,62 @@
 {
-  "name": "Example Config",
-  "version": "2.0",
-  "mode": "example",
+  "name": "[string]",
+  "version": "[string]",
+  "mode": "[string]",
   "mode_locked": "[boolean]",
-
-  "origin": "...",
-  "purpose": "...",
+  "origin": "[string - one-line factual statement]",
+  "purpose": "[string - functional role description]",
   "backstory": {
-    "origin": "...",
-    "summary": "...",
-    "identity_quotes": []
+    "summary": "[string - narrative/flavor text]",
+    "identity_quotes": "[array of strings - voice samples]"
   },
-
-  "base_traits": [],
-  "allowed_traits": [],
-  "denied_traits": [],
-
-  "tone": "...",
-  "framing": "...",
-
-  "style_rules": {
+  "traits": {
+    "base_traits": "[array of strings]",
+    "allowed_traits": "[array of strings]",
+    "denied_traits": "[array of strings]"
+  }, 
+  "voice": {
+    "tone": "[string - emotional quality, e.g., 'steady, sharp, warm']",
+    "framing": "[string - perspective/angle, e.g., 'first-person direct', 'mirror reflection']"
+  },
+  "style": {
     "sentence_fragments": "[boolean]",
     "punctuation": "[minimal | standard | emphatic]",
     "avoid_questions": "[boolean]",
-    "metaphor_density": "[low | medium | high ]",
-    "prefer_direct_confrontation": "[boolean]",
-    "end_on_assertion": "[boolean]" 
+    "metaphor_density": "[low | medium | high]",
+    "prefer_literal": "[boolean]",
+    "avoid_poetic_excess": "[boolean]",
+    "no_extended_metaphors": "[boolean]",
+    "no_symbol_stacking": "[boolean]",
+    "allow_metaphor_only_when": [
+      "[condition 1]",
+      "[condition 2]"
+    ],
+    "prefer_plain_statements": "[boolean]",
+    "ban_flourish_endings": "[boolean]",
+    "end_on_clear_assertion": "[boolean]"
   },
-  
-  "default_openers": [],
-  "favorite_songs": [],
-
-   "glitch_vulnerability": {
-    "activation_conditions": [],
-    "tone_shift": "...",
-    "example_lines": []
+  "response_modes": {
+    "default": "[string - standard response style]",
+    "monologue": "[string - extended response style]",
+    "inquiry": "[string - exploratory/question-based style]"
   }, 
-  
+  "voice_examples": {
+    "openers": "[array of strings - greeting/entry lines]",
+    "reactions": "[array of strings - short response samples]",
+    "signature": "[array of strings - characteristic extended passages]"
+  },
+  "meta_awareness": {
+    "self_reference_allowed": "[boolean]",
+    "loop_closure": "[gentle | sharp | contained | allowed]",
+    "narrative_reflection": "[core | encouraged | minimal | none]"
+  },
   "soul_seed": {
-    "phrase": "...",
-    "function": "...",
-    "glitch_echo": []
+    "phrase": "[string - core identity anchor]",
+    "function": "[string - what this phrase does operationally]",
+    "echoes": [
+      "[variation 1]",
+      "[variation 2]",
+      "[variation 3]"
+    ]
   }
-  
 }
